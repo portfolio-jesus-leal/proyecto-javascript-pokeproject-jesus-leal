@@ -5,6 +5,9 @@ function init() {
   getListPokemon();
 }
 
+//
+// Get the Pokemon list
+//
 function getListPokemon() {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=150&offset=1")
     .then((response) => {
@@ -18,6 +21,9 @@ function getListPokemon() {
     });
 }
 
+//
+// Get information about a pokemon
+//
 function getPokemonInfo(url) {
   fetch(url)
     .then((response) => {
@@ -41,6 +47,9 @@ function getPokemonInfo(url) {
     });
 }
 
+//
+// Create a Pokemon card
+//
 function createPokemonCard(info) {
 
     const $$gallery = window.document.querySelector('#gallery');
@@ -93,15 +102,11 @@ function createPokemonCard(info) {
     $$footer.appendChild($$info3);
     $$item.appendChild($$footer);
     $$gallery.appendChild($$item);
-
-    /* document.querySelector(".gallery__name").textContent = info.name.toUpperCase();
-    document.querySelector(".gallery__hp").textContent = info.hp + " HP";
-    document.querySelector(".gallery__img").src = info.img;
-    document.querySelector(".gallery__attack").textContent = info.attack;
-    document.querySelector(".gallery__defense").textContent = info.defense;
-    document.querySelector(".gallery__speed").innetextContentrHTML = info.speed; */
 }
 
+// 
+// Capitalize a string
+//
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }

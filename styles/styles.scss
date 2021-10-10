@@ -8,8 +8,7 @@ $font-text: "Montserrat",
 sans-serif;
 $main-color                 : #eceae4;
 $btn-color                  : #4caf50;
-$btn-color-cancel           : red;
-$btn-border-radius          : 1.5rem;
+$border-radius              : 1rem;
 $nav-font-color             : white;
 $circle-border-radius       : 50%;
 $header-background-color    : gray;
@@ -22,40 +21,9 @@ $tablet_landscape_breakpoint: 992px;
 $desktop_breakpoint         : 1200px;
 $desktop_xl_breakpoint      : 1600px;
 
-@mixin button {
-    font-family        : $font-main;
-    font-size          : 1.5rem;
-    display            : flex;
-    flex-direction     : row;
-    justify-content    : center;
-    align-items        : center;
-    margin             : 1rem 1rem;
-    padding            : 1rem 2rem;
-    width              : fit-content;
-    border-radius      : $btn-border-radius;
-    border             : 2px solid black;
-    background-color   : $btn-color;
-    box-shadow         : 0.3rem 0.3rem 0.3rem 0 #000;
-    transition-duration: 0.3s;
-
-    &>p {
-        margin-block: 0;
-    }
-
-    &:hover {
-        transform: scale(115%);
-    }
-
-    @include mobile {
-        font-size : unset;
-        margin    : 0.3rem auto;
-        padding   : 1rem 1rem;
-        box-shadow: 0.1rem 0.1rem 0.1rem 0 #000;
-    }
-}
-
+//
 // Mixin for media query
-
+//
 @mixin mobile {
     @media only screen and (max-width: #{$mobile_breakpoint}) {
         @content;
@@ -101,18 +69,13 @@ a {
     margin          : 2.5rem;
 }
 
-.main {
-    &__div {
-        width : 95%;
-        margin: auto;
+.body {
+    width      : 95%;
+    margin     : auto;
+    font-family: $font-main;
 
-        @include tablet {
-            width: 100%;
-        }
-    }
-
-    &__font {
-        font-family: $font-main;
+    @include tablet {
+        width: 100%;
     }
 }
 
@@ -139,7 +102,6 @@ a {
     }
 
     &__title:hover {
-        //transform: scale(110%);
         animation                : shake 0.5s;
         animation-iteration-count: infinite;
     }
@@ -148,7 +110,7 @@ a {
         position           : absolute;
         text-align         : center;
         top                : 3.6rem;
-        left               : 62%;
+        left               : 55%;
         margin             : 1rem 0;
         font-size          : 1.5rem;
         transition-duration: 0.2s;
@@ -284,48 +246,57 @@ a {
     }
 }
 
-.d-none {
-    display: none;
-}
-
 .gallery {
     display        : flex;
-    //flex           : 10;
     flex-wrap      : wrap;
-    //margin         : auto;
-    //width        : 95%;
-    //border-radius  : $btn-border-radius;
-    //border         : 2px solid #000;
+    justify-content: space-between;
 
     &__item {
-        border         : 2px solid black;
-        border-radius  : 1rem;
-        //margin         : auto;
-        // display        : flex;
-        // flex-direction : column;
-        // align-content  : center;
-        // justify-content: center;
-        // align-items    : flex-start;
-        max-width: 20vw;
-        background-color: #90CAF9;
+        border             : 1px solid black;
+        border-radius      : $border-radius;
+        max-width          : 17vw;
+        background-color   : #90CAF9;
+        margin-bottom      : 1rem;
+        box-shadow         : 0.2rem 0.2rem 0.2rem 0 grey;
+        transition-duration: 0.3s;
+
+        @include mobile {
+            max-width    : 27vw;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__item:hover {
+        transform: scale(120%);
     }
 
     &__title {
-        //margin: auto;
-        display: flex;
-        //flex-direction: row;
+        display    : flex;
         align-items: center;
-        text-align: center;
-        margin: 0.3rem 1rem;
+        text-align : center;
+        margin     : 0.3rem 1rem;
+
+        @include mobile {
+            margin        : 0.1rem;
+            flex-direction: column;
+        }
     }
 
     &__name {
         width: 70%;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     &__hp {
-        width: 30%;
+        width    : 30%;
         font-size: 0.8rem;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     &__img {
@@ -333,33 +304,29 @@ a {
     }
 
     &__cell {
-        margin         : auto;
-        width          : 90%;
-        border         : 2px solid #000;
-        display        : flex;
-        justify-content: center;
+        margin          : auto;
+        width           : 90%;
+        border          : 2px solid #000;
+        display         : flex;
+        justify-content : center;
         background-color: white;
     }
 
     &__footer {
-        font-family: $font-text;
-        font-size: 0.7rem;
-        display: flex;
-        //flex-direction: row;
-        //margin: auto;
+        font-family    : $font-text;
+        font-size      : 0.7rem;
+        display        : flex;
         justify-content: space-around;
-        margin: 0.2rem 0;
+        margin         : 0.2rem 0;
+
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     &__info {
-        display: flex;
+        display       : flex;
         flex-direction: column;
-        align-items: center;
-        //  border     : 2px solid #000;
-        
-    }
-
-    &__btn-next {
-        @include button;
+        align-items   : center;
     }
 }
