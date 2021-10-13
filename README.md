@@ -1,4 +1,4 @@
-### Bootcamp Full Stack developer - Upgrade Hub
+### Bootcamp Full Stack Developer - Upgrade Hub
 ## Proyecto JavaScript - PokeProject
 ---
 
